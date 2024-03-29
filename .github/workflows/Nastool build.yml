@@ -6,11 +6,11 @@ on:
       - master
     paths:
       - version.py
-      - .github/workflows/build.yml
+      - .github/workflows/Nastool build.yml
       - package_list.txt
       - requirements.txt
-      - nastool-mt/docker/Dockerfile
-      - nastool-mt/docker/entrypoint.sh
+      - docker/Dockerfile
+      - docker/entrypoint.sh
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +29,7 @@ jobs:
 
       -
         name: Set Up QEMU
-        uses: nastool-mt/docker/setup-qemu-action@v1
+        uses: docker/setup-qemu-action@v1
 
       -
         name: Set Up Buildx
@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: nastool-mt/docker/Dockerfile
+          file: docker/Dockerfile
           platforms: |
             linux/amd64
             linux/arm64
