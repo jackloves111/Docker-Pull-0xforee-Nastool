@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - version.py
-      - .github/workflows/Nastool build.yml
+      - .github/workflows/build.yml
       - package_list.txt
       - requirements.txt
       - docker/Dockerfile
